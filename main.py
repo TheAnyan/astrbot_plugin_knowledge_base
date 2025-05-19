@@ -102,10 +102,10 @@ class KnowledgeBasePlugin(Star):
             try:
                 self.embedding_util = self.context.get_registered_star("astrbot_plugin_embedding_adapter").star_cls
                 dim=self.embedding_util.get_dim()
-                modele_name=self.embedding_util.get_model_name()
-                if dim is not None and modele_name is not None:
+                model_name=self.embedding_util.get_model_name()
+                if dim is not None and model_name is not None:
                     self.config["embedding_dimension"] = dim
-                    self.config["embedding_model_name"] = modele_name
+                    self.config["embedding_model_name"] = model_name
             except Exception as e:
                 logger.warning(f"嵌入服务适配器插件加载失败: {e}", exc_info=True)
                 self.embedding_util = None
